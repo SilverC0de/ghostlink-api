@@ -1,0 +1,6 @@
+{
+    "watch": ["server.js", "app"],
+    "ext": "js,json",
+    "ignore": ["app/**/*.spec.js"],
+    "exec": "eslint --ext .js . && node --trace-warnings server.js"
+  }
