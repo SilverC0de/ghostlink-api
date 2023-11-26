@@ -1,8 +1,10 @@
 require('dotenv').config()
 const express = require('express')
 const helmet = require('helmet')
+const cors = require('cors')
 const { WebClient } = require('@slack/web-api');
 const api = express()
+
 
 const slack = new WebClient(process.env.SLACK_TOKEN, {});
 
@@ -21,6 +23,7 @@ api.use(helmet.referrerPolicy());
 api.use(helmet.noSniff())
 api.use(helmet.xssFilter())
 api.use(helmet.frameguard())
+api.use(cors())
 
 //require this for all routes
 api.use(express.json())
